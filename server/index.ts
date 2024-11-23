@@ -8,6 +8,7 @@ import { router as projectRoutes } from './routes/projects';
 import { router as authRoutes } from './routes/auth';
 import { router as taskRoutes } from './routes/tasks';
 import { router as userRoutes } from './routes/users';
+import { router as healthRoutes } from './routes/health';
 import { errorHandler } from './middleware/errorHandler';
 import { db } from '../src/database/database';
 
@@ -29,9 +30,10 @@ app.use(morgan('dev'));
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/tasks', taskRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api/health', healthRoutes);
 
 // Socket.IO events
 io.on('connection', (socket) => {
