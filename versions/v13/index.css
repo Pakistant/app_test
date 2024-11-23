@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  :root[class~="dark"] {
+    color-scheme: dark;
+  }
+}
+
+.dark body {
+  background-color: #111827;
+  color: #F3F4F6;
+}
+
+/* Styles pour react-big-calendar en mode sombre */
+.dark .rbc-calendar {
+  background-color: #1F2937;
+  color: #F3F4F6;
+}
+
+.dark .rbc-toolbar button {
+  color: #F3F4F6;
+  background-color: #374151;
+  border-color: #4B5563;
+}
+
+.dark .rbc-toolbar button:hover {
+  background-color: #4B5563;
+}
+
+.dark .rbc-toolbar button.rbc-active {
+  background-color: #3B82F6;
+  border-color: #2563EB;
+}
+
+.dark .rbc-header {
+  background-color: #374151;
+  border-color: #4B5563;
+}
+
+.dark .rbc-today {
+  background-color: #1E3A8A;
+}
+
+.dark .rbc-event {
+  background-color: #3B82F6;
+  border-color: #2563EB;
+}
+
+.dark .rbc-off-range-bg {
+  background-color: #1F2937;
+}
+
+/* Styles responsives personnalisés */
+@media (max-width: 640px) {
+  .modal-content {
+    @apply mx-4;
+  }
+  
+  .form-grid {
+    @apply grid-cols-1;
+  }
+  
+  .stats-grid {
+    @apply grid-cols-1;
+  }
+}
+
+/* Amélioration de l'accessibilité tactile sur mobile */
+@media (max-width: 640px) {
+  button, 
+  [role="button"],
+  input,
+  select {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  .touch-target {
+    @apply p-3;
+  }
+}
+
+/* Optimisations pour les écrans de petite taille */
+@media (max-width: 480px) {
+  .text-sm {
+    font-size: 0.8125rem;
+  }
+  
+  .text-xs {
+    font-size: 0.75rem;
+  }
+  
+  .h1 {
+    font-size: 1.5rem;
+  }
+  
+  .h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Amélioration de la lisibilité sur mobile */
+@media (max-width: 640px) {
+  .mobile-text {
+    @apply leading-relaxed tracking-wide;
+  }
+  
+  .mobile-spacing > * + * {
+    @apply mt-4;
+  }
+}
