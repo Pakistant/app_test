@@ -14,7 +14,9 @@
     "seed": "cross-env NODE_OPTIONS=--experimental-specifier-resolution=node knex seed:run --knexfile knexfile.mjs",
     "server": "cross-env TS_NODE_PROJECT=tsconfig.server.json NODE_OPTIONS=\"--loader ts-node/esm\" node --experimental-specifier-resolution=node server/index.ts",
     "start": "node dist/server/index.js",
-    "build": "tsc -p tsconfig.server.json && vite build"
+    "build": "tsc -p tsconfig.server.json && vite build",
+    "postinstall": "npm run migrate",
+    "migrate:prod": "cross-env NODE_ENV=production NODE_OPTIONS=--experimental-specifier-resolution=node knex migrate:latest --knexfile knexfile.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",

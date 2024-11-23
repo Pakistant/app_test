@@ -1,21 +1,11 @@
 export interface User {
-  id: string;
+  id: number;
   email: string;
-  displayName: string;
-  role: 'admin' | 'manager' | 'photographer' | 'videographer' | 'editor';
-  avatar?: string;
-  teams: string[];
-  preferences: {
-    theme: 'light' | 'dark';
-    notifications: {
-      email: boolean;
-      push: boolean;
-      desktop: boolean;
-    };
-    defaultView: 'kanban' | 'calendar' | 'list';
-  };
-  lastActive: string;
-  createdAt: string;
+  password?: string;
+  display_name: string;
+  role: 'admin' | 'user';
+  created_at?: Date;
+  updated_at?: Date;
 }
 
 export interface AuthState {
@@ -30,6 +20,6 @@ export interface LoginCredentials {
 }
 
 export interface RegisterData extends LoginCredentials {
-  displayName: string;
+  display_name: string;
   role: User['role'];
 }
